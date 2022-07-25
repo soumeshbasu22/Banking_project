@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ConfigDataProvider {
 	Properties pro;
-	String filepath="C:\\Users\\soumesh\\eclipse-workspace\\Bankingproject\\Configuration\\config.txt";
+	String filepath="C:\\Users\\soumesh\\git\\Banking_project\\Bankingproject\\Configuration\\config.txt";
 	
 	public String getuid() throws Exception {
 		FileInputStream fis=new FileInputStream(filepath);

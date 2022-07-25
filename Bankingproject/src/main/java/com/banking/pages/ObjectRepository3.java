@@ -11,8 +11,8 @@ public class ObjectRepository3 {
 	By acctype=By.cssSelector("select[name='selaccount']");
 	By amount=By.xpath("//input[@name='inideposit']");
 	By submitbut=By.xpath("//input[@name='button2']");
-	By addacclink=By.cssSelector("a[href='addAccount.php']");
-	
+	//By addacclink=By.cssSelector("a[href='addAccount.php']");
+	By addacclink=By.xpath("//*[text()='New Account']");
 	public ObjectRepository3(WebDriver driver) {
 		this.driver=driver;
 	}
@@ -23,6 +23,6 @@ public class ObjectRepository3 {
 		sel.selectByValue(accounttype);
 		driver.findElement(amount).sendKeys(amountini);
 		driver.findElement(submitbut).click();
-		driver.navigate().back();
+		
 	}
 }
