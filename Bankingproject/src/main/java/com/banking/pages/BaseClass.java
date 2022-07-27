@@ -6,6 +6,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -21,9 +23,10 @@ public class BaseClass {
 	public ExtentTest test;
 	public TestCases tc;
 	Helper help;
+	@Parameters("url")
 	@BeforeClass
-	public void setUp() {
-		driver=Browserfactory.browser(driver, "Chrome", "https://demo.guru99.com/test/newtours/");
+	public void setUp(String url) {
+		driver=Browserfactory.browser(driver,"Chrome",url);
 		String filepath="C:\\Users\\soumesh\\git\\Banking_project\\Bankingproject\\Reports\\newcustomer.html";
 		ExtentHtmlReporter html=new ExtentHtmlReporter(filepath);
 		report=new ExtentReports();
@@ -43,8 +46,13 @@ public class BaseClass {
 		if(result.getStatus()==ITestResult.SUCCESS) {
 			test.log(Status.PASS, "Test Case Passed");
 			Thread.sleep(4000);
-			help.screenshot(driver);
-		}report.flush();
+			
+		}
+			else {
+				test.log(Status.FAIL, "Test failed");
+				help.screenshot(driver);
+			}
+		report.flush();
 	}
 
 }
