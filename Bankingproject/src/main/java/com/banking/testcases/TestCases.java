@@ -41,6 +41,7 @@ public class TestCases extends BaseClass{
 	}*/
 	@Test(priority=1)
 	public void login() throws Exception {
+		test=report.createTest(Thread.currentThread().getStackTrace()[1].getMethodName().toString());
 		//result=ITestResult.SUCCESS;
 		or=new ObjectRepository1(driver);
 		cdp=new ConfigDataProvider();
@@ -50,7 +51,7 @@ public class TestCases extends BaseClass{
 	@Test(priority=2)
 	public void newcustomer() throws Exception{
 		//test=report.createTest("new customer addition");
-		
+		test=report.createTest(Thread.currentThread().getStackTrace()[1].getMethodName().toString());
 		or1=new ObjectRepository2(driver);
 		edp=new ExcelDataProvider();
 		int rownum=edp.sh.getLastRowNum()-edp.sh.getFirstRowNum();
@@ -84,7 +85,7 @@ public class TestCases extends BaseClass{
 		}
 	@Test(priority=3)
 	public void addaccount() throws Exception {
-		
+		test=report.createTest(Thread.currentThread().getStackTrace()[1].getMethodName().toString());
 		edp2=new ExcelDataProvider2();
 		or3=new ObjectRepository3(driver);
 		//test=report.createTest("Add Account");

@@ -40,7 +40,7 @@ public class BaseClass {
 	public void teardownMethod(ITestResult result) throws Exception {
 		tc=new TestCases();
 		help=new Helper();
-		test=report.createTest("Report on Success");
+		
 		System.out.println(result.getStatus());
 		
 		if(result.getStatus()==ITestResult.SUCCESS) {
